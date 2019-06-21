@@ -16,6 +16,9 @@ Route::get('/', 'PagesController@root')->name('root');
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
 
 Auth::routes(['verify' => true]);
+
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
+
 
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
